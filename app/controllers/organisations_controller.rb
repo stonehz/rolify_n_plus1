@@ -1,9 +1,9 @@
 class OrganisationsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /organisations
   # GET /organisations.json
   def index
     @organisations = Organisation.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @organisations }

@@ -1,9 +1,7 @@
 RolifyTut::Application.routes.draw do
   resources :organisations
-
-
   devise_for :users do
-    root to: "devise/sessions#new"
+   root to: "devise/sessions#new"
   end
 
   # The priority is based upon order of creation:

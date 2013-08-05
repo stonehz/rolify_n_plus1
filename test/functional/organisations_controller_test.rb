@@ -1,8 +1,12 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class OrganisationsControllerTest < ActionController::TestCase
   setup do
+    #@request.env["devise.mapping"] = Devise.mappings[:one]
+    user = users(:one)
     @organisation = organisations(:one)
+    sign_in user
   end
 
   test "should get index" do
