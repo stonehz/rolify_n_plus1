@@ -5,7 +5,12 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+
+gem 'pg'
+gem 'activerecord-postgis-adapter' # connection adapter for PostGIS, based on postgresql and rgeo
+gem 'rgeo' # Spatial data types in Ruby
+
 
 gem 'devise'
 gem 'cancan'
@@ -24,8 +29,20 @@ group :assets do
 end
 
 gem 'jquery-rails'
+group :development do
+  gem 'debugger'
+  gem 'bullet'
+end
 
-# To use ActiveModel has_secure_password
+group :test do
+  if RUBY_PLATFORM =~ /(win32|w32)/
+    gem "win32console", '1.3.0'
+  end
+  gem "minitest"
+  gem "minitest-reporters", '>= 0.5.0'
+end
+# To use ActiveM
+# odel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
